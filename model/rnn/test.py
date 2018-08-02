@@ -7,7 +7,7 @@ lstm_size = 12  # 3 times the amount of channels
 lstm_layers = 3  # Number of layers
 batch_size = 720  # Batch size.
 seq_len = 128  # Number of steps
-learning_rate = 0.01  # Learning rate (default is 0.001)
+learning_rate = 0.001  # Learning rate (default is 0.001)
 epochs = 1000
 
 # Fixed
