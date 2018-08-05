@@ -34,22 +34,22 @@ with graph.as_default():
     learning_rate_ = tf.placeholder(tf.float32, name='learning_rate')
 
 with graph.as_default():
-    # (batch, 128, 9) --> (batch, 64, 18)
+    # (batch, 128, 4) --> (batch, 64, 8)
     conv1 = tf.layers.conv1d(inputs=inputs_, filters=18, kernel_size=2, strides=1,
                              padding='same', activation=tf.nn.relu)
     max_pool_1 = tf.layers.max_pooling1d(inputs=conv1, pool_size=2, strides=2, padding='same')
 
-    # (batch, 64, 18) --> (batch, 32, 36)
+    # (batch, 64, 8) --> (batch, 32, 16)
     conv2 = tf.layers.conv1d(inputs=max_pool_1, filters=36, kernel_size=2, strides=1,
                              padding='same', activation=tf.nn.relu)
     max_pool_2 = tf.layers.max_pooling1d(inputs=conv2, pool_size=2, strides=2, padding='same')
 
-    # (batch, 32, 36) --> (batch, 16, 72)
+    # (batch, 32, 16) --> (batch, 16, 32)
     conv3 = tf.layers.conv1d(inputs=max_pool_2, filters=72, kernel_size=2, strides=1,
                              padding='same', activation=tf.nn.relu)
     max_pool_3 = tf.layers.max_pooling1d(inputs=conv3, pool_size=2, strides=2, padding='same')
 
-    # (batch, 16, 72) --> (batch, 8, 144)
+    # (batch, 16, 32) --> (batch, 8, 64)
     conv4 = tf.layers.conv1d(inputs=max_pool_3, filters=144, kernel_size=2, strides=1,
                              padding='same', activation=tf.nn.relu)
     max_pool_4 = tf.layers.max_pooling1d(inputs=conv4, pool_size=2, strides=2, padding='same')
